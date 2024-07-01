@@ -91,7 +91,7 @@ export const createPaymentIntent: PayloadHandler = async (req, res): Promise<voi
         total += price.unit_amount * quantity
 
         return null
-      })
+      }),
     )
 
     if (total === 0) {
