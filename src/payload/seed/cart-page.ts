@@ -1,4 +1,4 @@
-import type { Page, Media } from '../payload-types'
+import type { Page } from '../payload-types';
 
 export const cartPage: Partial<Page> = {
   title: 'Cart',
@@ -118,4 +118,4 @@ export const cartPage: Partial<Page> = {
       blockType: 'cta',
     },
   ],
-}
+};
