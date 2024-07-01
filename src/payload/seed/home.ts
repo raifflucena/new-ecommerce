@@ -1,4 +1,4 @@
-import type { Page } from '../payload-types'
+import type { Page } from '../payload-types';
 
 export const home: Partial<Page> = {
   title: 'Home',
@@ -7,7 +7,7 @@ export const home: Partial<Page> = {
   meta: {
     title: 'Payload E-Commerce Template',
     description: 'An open-source e-commerce store built with Payload and Next.js.',
-    image: '{{PRODUCT1_IMAGE}}',
+    image: 0,
   },
   hero: {
     type: 'highImpact',
@@ -63,7 +63,7 @@ export const home: Partial<Page> = {
           appearance: 'primary',
           reference: {
             relationTo: 'pages',
-            value: '{{PRODUCTS_PAGE_ID}}',
+            value: 0,
           },
           label: 'Shop now',
           url: '',
@@ -80,7 +80,7 @@ export const home: Partial<Page> = {
         },
       },
     ],
-    media: '{{PRODUCT1_IMAGE}}',
+    media: 0,
   },
   layout: [
     {
@@ -426,7 +426,7 @@ export const home: Partial<Page> = {
       blockType: 'mediaBlock',
       blockName: 'Media Block',
       position: 'default',
-      media: '{{PRODUCT2_IMAGE}}',
+      media: 0,
     },
     {
       blockName: 'Archive Block',
@@ -494,7 +494,7 @@ export const home: Partial<Page> = {
             label: 'Shop now',
             appearance: 'primary',
             reference: {
-              value: '{{PRODUCTS_PAGE_ID}}',
+              value: 0,
               relationTo: 'pages',
             },
           },
@@ -502,4 +502,4 @@ export const home: Partial<Page> = {
       ],
     },
   ],
-}
+};

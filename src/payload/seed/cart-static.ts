@@ -1,11 +1,11 @@
-import type { Page } from '../payload-types'
+import type { Page } from '../payload-types';
 
 export const staticCart: Page = {
-  id: '',
+  id: 0,
   title: 'Cart',
   slug: 'cart',
-  createdAt: '',
-  updatedAt: '',
+  createdAt: '2023-01-01T00:00:00.000Z',
+  updatedAt: '2023-01-01T00:00:00.000Z',
   _status: 'published',
   meta: {
     title: 'Cart',
@@ -15,7 +15,7 @@ export const staticCart: Page = {
   hero: {
     type: 'lowImpact',
     links: [],
-    media: '',
+    media: 0,
     richText: [
       {
         type: 'h1',
@@ -106,4 +106,4 @@ export const staticCart: Page = {
       blockType: 'cta',
     },
   ],
-}
+};

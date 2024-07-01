@@ -1,4 +1,4 @@
-import type { Page } from '../payload-types'
+import type { Page, Media } from '../payload-types';
 
 export const cartPage: Partial<Page> = {
   title: 'Cart',
@@ -12,7 +12,7 @@ export const cartPage: Partial<Page> = {
   hero: {
     type: 'lowImpact',
     links: [],
-    media: '',
+    media: 0,
     richText: [
       {
         type: 'h1',
@@ -51,7 +51,10 @@ export const cartPage: Partial<Page> = {
           link: {
             type: 'reference',
             url: '',
-            reference: null,
+            reference: {
+              relationTo: 'pages',
+              value: 0,
+            },
             label: '',
           },
           richText: [
@@ -104,7 +107,7 @@ export const cartPage: Partial<Page> = {
             url: '',
             reference: {
               relationTo: 'pages',
-              value: '{{PRODUCTS_PAGE_ID}}',
+              value: 0,
             },
             label: 'Continue shopping',
             appearance: 'primary',
@@ -115,4 +118,4 @@ export const cartPage: Partial<Page> = {
       blockType: 'cta',
     },
   ],
-}
+};
