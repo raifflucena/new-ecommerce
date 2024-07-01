@@ -1,11 +1,16 @@
 import type { PayloadHandler } from 'payload/config'
 import Stripe from 'stripe'
 
-import type { CartItems } from '../payload-types'
+import type { CartItems, Product } from '../payload-types'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
   apiVersion: '2022-08-01',
 })
+
+// Type guard function
+function isProduct(obj: number | Product): obj is Product {
+  return typeof obj !== 'number' && 'stripeProductID' in obj
+}
 
 // this endpoint creates a `PaymentIntent` with the items in the cart
 // to do this, we loop through the items in the cart and lookup the product in Stripe
@@ -67,7 +72,7 @@ export const createPaymentIntent: PayloadHandler = async (req, res): Promise<voi
           return null
         }
 
-        if (typeof product === 'string' || !product?.stripeProductID) {
+        if (!isProduct(product)) {
           throw new Error('No Stripe Product ID')
         }
 
@@ -86,7 +91,7 @@ export const createPaymentIntent: PayloadHandler = async (req, res): Promise<voi
         total += price.unit_amount * quantity
 
         return null
-      }),
+      })
     )
 
     if (total === 0) {
