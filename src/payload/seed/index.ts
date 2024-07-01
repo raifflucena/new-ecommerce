@@ -26,8 +26,18 @@ export const seed = async (payload: Payload): Promise<void> => {
 
   payload.logger.info(`— Clearing collections and globals...`)
   await Promise.all([
-    ...collections.map(async collection => payload.delete({ collection: collection as 'media', where: {} })),
-    ...globals.map(async global => payload.updateGlobal({ slug: global as 'header', data: {} })),
+    ...collections.map(async collection => 
+      payload.delete({
+        collection: collection as 'media',
+        where: {}
+      }),
+    ),
+    ...globals.map(async global => 
+      payload.updateGlobal({
+        slug: global as 'header',
+        data: {}
+      }),
+    ),
   ])
 
   payload.logger.info(`— Seeding media...`)
@@ -76,7 +86,7 @@ export const seed = async (payload: Payload): Promise<void> => {
       JSON.stringify({ ...product1, categories: [apparelCategory.id] }).replace(
         /"\{\{PRODUCT_IMAGE\}\}"/g,
         `${image1ID}`,
-      )
+      ),
     ),
   })
 
@@ -86,7 +96,7 @@ export const seed = async (payload: Payload): Promise<void> => {
       JSON.stringify({ ...product2, categories: [ebooksCategory.id] }).replace(
         /"\{\{PRODUCT_IMAGE\}\}"/g,
         `${image2ID}`,
-      )
+      ),
     ),
   })
 
@@ -96,7 +106,7 @@ export const seed = async (payload: Payload): Promise<void> => {
       JSON.stringify({ ...product3, categories: [coursesCategory.id] }).replace(
         /"\{\{PRODUCT_IMAGE\}\}"/g,
         `${image3ID}`,
-      )
+      ),
     ),
   })
 
